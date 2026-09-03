@@ -1,0 +1,17 @@
+<nav class="user-nav">
+    <h2>
+      InvestTrack
+    </h2>
+    <span class="role-label">{{name}} / {{role}}</span>
+      <a routerLink="/user/view-investment">View Investments</a>
+      <a routerLink="/user/view-inquiry">My Inquiries</a>
+      <a routerLink="/user/add/feedback">Add Feedback</a>
+      <a routerLink="/user/view-feedback">View Feedbacks</a>
+    <button (click)="logout()">Logout</button>
+  </nav>
+  
+  <div *ngIf="showLogoutPopup" class="popup">
+    <p>Are you sure you want to logout?</p>
+    <button (click)="Logout()">Yes, Logout</button>
+    <button (click)="cancelLogout()">Cancel</button>
+</div>

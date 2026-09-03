@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="form-section">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+      <h2 style="color: #00ff00; font-weight: bold; text-align: center;">Register</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter Username" [(ngModel)]="user.username" required
+        #username="ngModel" ngModel />
+      <div class="error-message" *ngIf="username.invalid && (username.dirty || username.touched)">Username is required
+      </div><br>
+
+      <label for="email">Email:</label>
+      <input id="email" name="email" type="text" placeholder="Enter Email" [(ngModel)]="user.email" required
+      pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" email #email="ngModel" /><br>
+      <div class="error-message" *ngIf=" (email.dirty || email.touched) && email.errors?.required">Email is required
+      </div>
+      <div class="error-message"
+        *ngIf=" (email.dirty || email.touched) && email.errors?.email || email.errors?.pattern">Valid Email is required
+      </div>
+
+      <label for="mobile">Mobile Number:</label>
+      <input id="mobile" name="mobile" type="tel" placeholder="Enter Mobile Number" [(ngModel)]="user.mobileNumber"
+        pattern="^[0-9]{10}$" #mobile="ngModel" required />
+      <div class="error-message" *ngIf="(mobile.dirty || mobile.touched) && mobile.errors?.required">
+        Mobile Number is required
+      </div>
+      <div class="error-message" *ngIf="(mobile.dirty || mobile.touched) && mobile.errors?.pattern">
+        Please enter a valid 10-digit mobile number
+      </div>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" [(ngModel)]="user.password"
+        required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$" #password="ngModel" />
+      <div class="error-message" *ngIf="password.errors?.required && password.touched">
+        Password is required</div>
+      <div class="error-message" *ngIf="!password.errors?.required && password.errors?.pattern">Password must include uppercase, lowercase, number, and special character(minimum length should be 8 characters)</div><br>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Enter Confirm Password"
+        #confirmPasswordField="ngModel" [(ngModel)]="confirmPassword" required /><br>
+      <div class="error-message" *ngIf="password.errors?.required && password.touched">
+        Confirm Password is required</div>
+      <div class="error-message"
+        *ngIf="(confirmPasswordField.dirty || confirmPasswordField.touched) && confirmPassword !== user.password">
+        Confirm Password does not match
+      </div>
+
+      <label for="role">Role:</label>
+      <select id="role" name="role" [(ngModel)]="user.userRole" required>
+        <option value="" disabled>Select Role</option>
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+      </select><br><br>
+
+      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+      <button type="submit">Register</button><br>
+
+      <p class="login-link">
+        Have an account?
+        <a routerLink="/login">Sign in</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="showModal" aria-modal="true" class="modal">
+  <p>{{ successMessage }}</p>
+  <button (click)="redirectToLogin()">Go to Login</button>
+</div>

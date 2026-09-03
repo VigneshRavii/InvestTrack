@@ -1,0 +1,76 @@
+<app-adminnav></app-adminnav>
+<h1>Manage Investment Inquiries</h1>
+
+<input type="text" [(ngModel)]="searchfilter" placeholder="Search here...">
+<div class="filters">
+    <select [(ngModel)]="selectedPriority" (ngModelChange)="applyFilters()">
+      <option *ngFor="let p of priorities" >{{ p }}</option>
+    </select>
+    <select [(ngModel)]="selectedStatus" (ngModelChange)="applyFilters()">
+      <option *ngFor="let s of statuses">{{ s }}</option>
+    </select>
+  </div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Investment</th>
+            <th>Message</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Admin Response</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    
+<tbody>
+  <tr *ngFor="let inquiry of filteredList |searchfilter:searchfilter | paginate: { itemsPerPage: 5, currentPage: page }">
+    <td>{{inquiry.user?.userId}}</td>
+    <td>{{ inquiry.user?.username || 'guest' }}</td>
+    <td>{{ inquiry.investment?.name }}</td>
+    <td>{{ inquiry.message }}</td>
+    <td>
+      <select [(ngModel)]="inquiry.status" (change)="changeStatus(inquiry, inquiry.status)">
+        <option *ngFor="let s of statuses.slice(1)">{{ s }}</option>
+      </select>
+      
+</td>
+<td>{{ inquiry.priority }}</td>
+<td>{{ inquiry.adminResponse || 'No response yet' }}</td>
+<td>
+  <button (click)="openResponseModal(inquiry)">Add Response</button>
+  <button (click)="deleteInquiry(inquiry.inquiryId)">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+
+<ng-template #noData>
+  <p>No inquiries found</p>
+</ng-template>
+
+<div class="popup-overlay" *ngIf="selectedInquiry">
+  <div class="popup-box">
+    <h3>Add Response</h3>
+    <textarea [(ngModel)]="responseText" placeholder="Enter your response..."></textarea>
+    
+    <div class="button-group">
+      <button (click)="submitResponse()">Submit</button>
+      <button class="cancel-button" (click)="selectedInquiry = null">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="filteredList.length > 0" style="margin-top: 20px; text-align: center;">
+  <pagination-controls
+    (pageChange)="page = $event"
+    previousLabel="« Prev"
+    nextLabel="Next »"
+    [maxSize]="5"
+    [directionLinks]="true"
+    [autoHide]="false">
+  </pagination-controls>
+</div>
+

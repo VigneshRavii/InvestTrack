@@ -1,0 +1,65 @@
+<app-adminnav></app-adminnav>
+<div class="container">
+<h2>Add New Investment</h2>  
+<form #invForm="ngForm" (ngSubmit)="addInvestment(invForm)">
+
+<label for="investmentname">Investment Name:</label>
+<input type="text" name="invname" id="invname" [(ngModel)]="invobj.name" #investmentName="ngModel" required >
+<div class="error-message" *ngIf="investmentName.touched && investmentName.errors?.required">
+    Investment name is required.
+</div>
+
+<label for="description">Description:</label>
+<textarea name="des" id="des" cols="30" rows="10" [(ngModel)]="invobj.description" #investmentDescription="ngModel" required ></textarea>
+<div class="error-message" *ngIf="investmentDescription.touched && investmentDescription.errors?.required">
+    Description is required.
+</div>
+
+<label for="type">Type:</label>
+<select name="type" id="type" [(ngModel)]="invobj.type">
+    <option value="" disabled >Select Type</option>
+    <option value="Mutual Funds">Mutual Funds</option>
+    <option value="Stock">Stock</option>
+    <option value="Crypto">Crypto</option>
+    <option value="Real Estate">Real Estate</option>
+</select>
+
+<label for="purprice">Purchase Price(USD):</label>
+<input type="number" name="purprice" id="purprice" [(ngModel)]="invobj.purchasePrice" #purchasePrice="ngModel" required min="0" >
+<div class="error-message" *ngIf="purchasePrice.touched && purchasePrice.errors?.required">
+    Purchase price is required.
+</div>
+
+<label for="curprice">Current Price(USD):</label>
+<input type="number" name="curprice" id="curprice" [(ngModel)]="invobj.currentPrice" #currentPrice="ngModel" required min="0" >
+<div class="error-message" *ngIf="currentPrice.touched && currentPrice.errors?.required">
+    Current price is required.
+</div>
+
+<label for="quantity">Quantity:</label>
+<input type="number" name="quantity" id="quantity" [(ngModel)]="invobj.quantity" #investmentQuantity="ngModel" required min="1" >
+<div class="error-message" *ngIf="investmentQuantity.touched && investmentQuantity.errors?.required">
+    Quantity is required.
+</div>
+
+<label for="status">Status:</label>
+<select name="status" id="status" [(ngModel)]="invobj.status" #invstatus="ngModel" required>
+<option value="" disabled >Select Status</option>
+<option value="Active">Active</option>
+<option value="Sold">Sold</option>
+</select>
+
+
+<button 
+  type="submit"
+  [disabled]="!invForm.valid"
+  [ngClass]="{
+    'valid-button': invForm.valid,
+    'invalid-button': !invForm.valid
+  }"
+>
+  ADD INVESTMENT
+</button>
+
+</form>
+</div>

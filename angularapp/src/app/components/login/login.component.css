@@ -1,0 +1,112 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .login-container {
+    display: flex;
+    height: 100vh;
+    background-color: #333;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .login-container::before {
+    content: "";
+    flex: 1;
+    background-image: url('https://img.freepik.com/free-vector/stock-market-forex-trading-concept_1017-30884.jpg');
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .login-container form {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container h1 {
+    color: #00FF00;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .login-container input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #00FF00;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+  }
+  
+  .login-container button {
+    width: 95%;
+    padding: 10px;
+    background-color: #808080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .signup-link {
+    text-align: center;
+    color: #00FF00;
+  }
+  
+  .signup-link a {
+    color: #00FF00;
+    text-decoration: none;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+/* Default button style */
+.login-container button {
+  width: 95%;
+  padding: 10px;
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+}
+
+/* Button turns green when both fields are non-empty */
+input[name="email"]:not(:placeholder-shown):valid
+  ~ input[name="password"]:not(:placeholder-shown):valid
+  ~ button {
+  background-color: #00FF00;
+  color: black;
+  cursor: pointer;
+}
+
+/* Red when either field is empty or invalid */
+input[name="email"]:invalid ~ button,
+input[name="password"]:invalid ~ button {
+  background-color: red;
+  color: white;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+

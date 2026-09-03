@@ -1,0 +1,67 @@
+.admin-console {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: #39ff14;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-console h1 {
+  margin-bottom: 30px;
+  color: #39ff14;
+  text-shadow: 0 0 10px #39ff14;
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  max-width: 100%;
+}
+
+/* Remove extra spacing from container */
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Square card styling */
+.title-card {
+  background-color: #111;
+  border: 2px solid #39ff14;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #39ff14;
+  box-shadow: 0 0 8px #39ff14;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.title-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #39ff14;
+}
+
+.value-card {
+  background-color: #39ff14;
+  color: #000;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 6px;
+  min-width: 50px;
+  box-shadow: 0 0 8px #39ff14;
+}

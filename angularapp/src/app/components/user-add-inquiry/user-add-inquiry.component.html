@@ -1,0 +1,43 @@
+<form #inquiryForm="ngForm" (ngSubmit)="onSubmit(inquiryForm)">
+  <label>Investment Name</label>
+  <input type="text" [(ngModel)]="investment.name" name="investname" disabled>
+
+  <label>Message</label>
+  <textarea
+    id="message"
+    name="message"
+    [(ngModel)]="inquiry.message"
+    required
+    #messageRef="ngModel"
+  ></textarea>
+  <div *ngIf="messageRef.invalid && messageRef.touched" class="error">
+    Message is required.
+  </div>
+
+  <label>Priority</label>
+  <select
+    id="priority"
+    name="priority"
+    [(ngModel)]="inquiry.priority"
+    required
+    #priorityRef="ngModel"
+  >
+    <option value="">Select Priority</option>
+    <option value="High">High</option>
+    <option value="Medium">Medium</option>
+    <option value="Low">Low</option>
+  </select>
+  <div *ngIf="priorityRef.invalid && priorityRef.touched" class="error">
+    Priority is required.
+  </div>
+
+  <button type="submit" [disabled]="inquiryForm.invalid" class="submit-button">
+    Submit Inquiry
+  </button>
+</form>
+<div class="popup-overlay" *ngIf="showPopup">
+  <div class="popup-box">
+    <p>{{ successMessage }}</p>
+    <button (click)="viewComponent()">Ok</button>
+  </div>
+</div>

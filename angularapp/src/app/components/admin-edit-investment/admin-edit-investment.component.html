@@ -1,0 +1,51 @@
+<app-adminnav></app-adminnav>
+<h2>Edit Investment</h2>
+<form #invForm="ngForm" (ngSubmit)="updateInvestment(invForm)">
+
+    <label for="investmentname">Investment Name:</label>
+    <input type="text" name="invname" id="invname" [(ngModel)]="updatedInvestmentObj.name" #investmentName="ngModel" required >
+    <div *ngIf="investmentName.touched && investmentName.errors?.required">
+        Investment name is required.
+    </div>
+    
+    <label for="description">Description:</label>
+    <textarea name="des" id="des" cols="30" rows="10" [(ngModel)]="updatedInvestmentObj.description" #investmentDescription="ngModel" required ></textarea>
+    <div *ngIf="investmentDescription.touched && investmentDescription.errors?.required">
+        Description is required.
+    </div>
+    
+    <label for="type">Type:</label>
+    <select name="type" id="type" [(ngModel)]="updatedInvestmentObj.type">
+        <option value="Mutual Funds">Mutual Funds</option>
+        <option value="Stock">Stock</option>
+        <option value="Crypto">Crypto</option>
+        <option value="Real Estate">Real Estate</option>
+    </select>
+    
+    <label for="purprice">Purchase Price(USD):</label>
+    <input type="number" name="purprice" id="purprice" [(ngModel)]="updatedInvestmentObj.purchasePrice" #purchasePrice="ngModel" required min="0" >
+    <div *ngIf="purchasePrice.touched && purchasePrice.errors?.required">
+        Purchase price is required.
+    </div>
+    
+    <label for="curprice">Current Price(USD):</label>
+    <input type="number" name="curprice" id="curprice" [(ngModel)]="updatedInvestmentObj.currentPrice" #currentPrice="ngModel" required min="0" >
+    <div *ngIf="currentPrice.touched && currentPrice.errors?.required">
+        Current price is required.
+    </div>
+    
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" id="quantity" [(ngModel)]="updatedInvestmentObj.quantity" #investmentQuantity="ngModel" required min="1" >
+    <div *ngIf="investmentQuantity.touched && investmentQuantity.errors?.required">
+        Quantity is required.
+    </div>
+    
+    <label for="status">Status:</label>
+    <select name="status" id="status" [(ngModel)]="updatedInvestmentObj.status" #invstatus="ngModel" required>
+    <option value="Active">Active</option>
+    <option value="Sold">Sold</option>
+    </select>
+    
+    <button type="submit">UPDATE INVESTMENT</button>
+    
+    </form>

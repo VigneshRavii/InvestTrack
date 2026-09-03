@@ -1,0 +1,140 @@
+h2 {
+    color: #a4ff9b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #1c1c1c;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  thead th {
+    background-color: #292929;
+    color: #a4ff9b;
+    padding: 12px;
+    border-bottom: 2px solid #444;
+    font-size: 15px;
+  }
+  
+  tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  tbody tr:hover {
+    background-color: #2e2e2e;
+    transition: 0.3s;
+  }
+  
+  p {
+    text-align: center;
+    color: #bbb;
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  
+  /* Blur background effect */
+.error-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7); /* semi-transparent dark background */
+  backdrop-filter: blur(8px); /* blur effect */
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ff00; /* neon green glow */
+  color: #39ff14; /* neon green text */
+  z-index: 1000;
+  text-align: center;
+}
+
+/* Neon text effect */
+.error-message p {
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+/* Yes button - green */
+.error-message button:nth-child(2) {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #28a745;
+}
+
+/* No button - red */
+.error-message button:nth-child(3) {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #dc3545;
+}
+
+/* Delete button in table - red */
+table button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #ff4d4d;
+}
+  ::ng-deep .ngx-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  ::ng-deep .ngx-pagination a,
+  ::ng-deep .ngx-pagination span {
+    color: #00FF00 !important;
+    background-color: #111111 !important;
+    border: 1px solid #00FF00 !important;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-align: center;
+    min-width: 40px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  ::ng-deep .ngx-pagination a:hover {
+    background-color: #00FF00 !important;
+    color: #000000 !important;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+  }
+  
+  ::ng-deep .ngx-pagination .current {
+    background-color: #00FF00 !important;
+    color: #000000 !important;
+    font-weight: bold;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.8);
+  }
+  

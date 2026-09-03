@@ -1,0 +1,109 @@
+form {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #111;
+  padding: 20px;
+  border: 1px solid green;
+  border-radius: 8px;
+  color: white;
+  font-family: sans-serif;
+}
+
+.container {
+  background-color: #111;
+}
+
+h2 {
+  text-align: center;
+  color: green;
+  margin-bottom: 20px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Makes the calendar icon visible on dark backgrounds */
+}
+
+input[type="date"] {
+  color-scheme: dark; /* Ensures the date picker uses dark mode styling */
+  background-color: black;
+  color: white;
+  border: 1px solid green;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  position: relative;
+  appearance: none; /* Removes default styling */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: white;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid green;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.error-message,
+div[ngIf],
+.validation-error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* ✅ Button Styling Based on Form Validity */
+button[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+/* Valid form: green button */
+.valid-button {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+/* Invalid form: red button */
+.invalid-button {
+  background-color: red;
+  color: white;
+  cursor: not-allowed;
+}
+
+/* Hover effect only when valid */
+.valid-button:hover {
+  background-color: darkgreen;
+}

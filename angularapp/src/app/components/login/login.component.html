@@ -1,0 +1,24 @@
+<div class="login-container">
+<form #form="ngForm" (ngSubmit)="onLogin(form)">
+    <h1>Login to InvestTrack</h1><br>
+    
+    <input type="text" name="email" [(ngModel)]="user.email"
+    pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+    placeholder="Email" #email="ngModel" required />
+
+    <div class="error-message" *ngIf=" (email.dirty || email.touched) && email.errors?.required">Email is required.</div>
+    <div class="error-message" *ngIf="(email.dirty || email.touched) && (email.errors?.email || email.errors?.pattern)">Please enter a valid email address.</div>
+    <br><br>
+
+    <input name="password" type="password" [(ngModel)]="user.password" placeholder="Password" required #password="ngModel"/>
+    <div class="error-message" *ngIf=" (password.dirty || password.touched) && password.errors?.required">Password is required.</div><br>
+   <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+   <button type="submit">Login</button><br><br>
+   
+  <p class="signup-link">
+    Don't have an account?
+    <a routerLink="/register">Sign up</a>
+  </p>
+
+</form>
+</div>

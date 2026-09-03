@@ -1,0 +1,40 @@
+<app-usernav></app-usernav>
+<div class="form-container">
+
+<h2>Add Feedback</h2>
+<form #feedbackForm="ngForm" (ngSubmit)="addFeedback(feedbackForm)">
+
+<label for="investment" >Select Investment</label>
+<select id="investment" name="investment" [(ngModel)]="feedback.investment" #investment="ngModel" required >
+  <option [ngValue]="null" disabled>Select an Investment</option>
+  <option *ngFor="let investment of investments" [ngValue]="investment">
+    {{investment.name}}
+  </option>
+</select><br>
+<div *ngIf="(investment.dirty || investment.touched) && investment.errors?.required" style="color: red;">Investment is required.</div>
+
+    <label for="category">Feedback Category</label>
+    <select id="category" name="category" [(ngModel)]="feedback.category" #category="ngModel" required>
+        <option value="" disabled>Select Category</option>
+        <option value="portfolio">Portfolio</option>
+        <option value="advice">Advice</option>
+        <option value="Service">Service</option>
+    </select><br>
+    <div *ngIf="(category.dirty || category.touched) && category.errors?.required" style="color: red;">Category is required.</div>
+
+    <label for="feedbackMessage">Feedback Message</label>
+    <textarea id="feedbackMessage"  name="feedbackMessage" [(ngModel)]="feedback.feedbackText" #feedbackMessage="ngModel" required></textarea><br>
+    <div *ngIf="(feedbackMessage.dirty || feedbackMessage.touched) && feedbackMessage.errors?.required" style="color: red;">Feedback Message is required.</div>
+
+  <button type="submit" [disabled]="feedbackForm.invalid">Submit Feedback</button>
+    <button type="button" (click)="cancel(feedbackForm)">Cancel</button>
+
+  <!-- popup successmessage -->
+  <div class="success-message" *ngIf="successMessage">
+    <p>Feedback submitted Successfully!</p>
+    <button (click)="close()">Close</button>
+  </div>
+
+</form>
+</div>
+

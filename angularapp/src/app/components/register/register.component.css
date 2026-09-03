@@ -1,0 +1,112 @@
+/* Reset and full-screen layout */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212; /* Dark background */
+  overflow: hidden; /* Prevent scrollbars */
+  font-family: Arial, sans-serif;
+}
+
+/* Container to center the form */
+.container {
+background-image: url('https://img.freepik.com/free-vector/stock-market-forex-trading-concept_1017-30884.jpg'); 
+background-size: cover;         /* Ensures the image covers the entire container */
+background-repeat: no-repeat;   /* Prevents tiling */
+background-position: center;    /* Centers the image */
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+width: 100%;
+}
+
+/* Form box styling */
+.form-section {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+}
+
+/* Form layout */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input and select styling */
+input, select {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+/* Button styling */
+
+button {
+  padding: 10px 20px;
+  background-color: #00ff00;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 20px auto 0 auto; /* Top margin + auto left/right centers the button */
+  display: block;           /* Ensures margin auto works */
+}
+
+
+button:hover {
+  background-color: #00cc00;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ff00;
+  color: #fff;
+  z-index: 1000;
+}
+
+.login-link {
+  text-align: center;
+  color: #00FF00;
+}
+
+.login-link a {
+  color: #00FF00;
+  text-decoration: none;
+}
+
+input[name="username"]:invalid ~ button,
+input[name="email"]:invalid ~ button,
+input[name="password"]:invalid ~ button,
+input[name="mobile"]:invalid ~ button {
+  background-color: red;
+  color: white;
+  cursor: not-allowed;
+}

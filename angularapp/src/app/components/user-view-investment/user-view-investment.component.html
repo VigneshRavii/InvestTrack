@@ -1,0 +1,88 @@
+<app-usernav></app-usernav>
+<h2>Manage Investments</h2>
+
+<label for="search">Search by Name:</label>
+<input type="text" placeholder="Investment Name..." [(ngModel)]="searchText">
+
+<label for="filter">Filter by Type:</label>
+<select name="filter" id="filter" [(ngModel)]="filterBy" >
+<option value="All Types">All Types</option>
+<option value="Mutual Funds">Mutual Funds</option>
+<option value="Stock">Stock</option>
+<option value="Crypto">Crypto</option>
+<option value="Real Estate">Real Estate</option>
+</select>
+
+<div *ngIf="investments.length==0">
+    No investments available. Add some investments to view here.
+</div>
+
+<table *ngIf="investments.length>0">
+
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Purchase Price(USD)</th>
+            <th>Current Price(USD)</th>
+            <th>Quantity</th>
+            <th>Purchase Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let investment of investments | search:searchText | filter:filterBy | paginate: { itemsPerPage: 5, currentPage: page }; let i = index "  >
+            <td>
+                {{i+1}}
+            </td>
+            <td>
+                {{investment.investmentId}}
+            </td>
+            <td>
+                {{investment.name}}
+            </td>
+            <td>
+                {{investment.description}}
+            </td>
+            <td>
+                {{investment.type}}
+            </td>
+            <td>
+                {{investment.purchasePrice}}
+            </td>
+            <td>
+                {{investment.currentPrice}}
+            </td>
+            <td>
+                {{investment.quantity}}
+            </td>
+            <td>
+                {{investment.purchaseDate | date:'mediumDate'}}
+            </td>
+            <td>
+                {{investment.status}}
+            </td>
+            <td>
+                <button type="button" (click)="actionInquiry(investment.investmentId)">Inquire</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+<div style="margin-top: 20px; text-align: center;">
+    <pagination-controls
+      (pageChange)="page = $event"
+      previousLabel="« Prev"
+      nextLabel="Next »"
+      [maxSize]="5"
+      [directionLinks]="true"
+      [autoHide]="false">
+    </pagination-controls>
+  </div>
+  

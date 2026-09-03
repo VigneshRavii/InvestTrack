@@ -1,0 +1,22 @@
+<div class="adminnav-container">
+<nav class="admin-navbar">
+    <h2>
+      InvestTrack  
+    </h2>
+    <span class="role-label">{{name}} / {{role}}</span>
+
+      <a routerLink="/home">Home</a>
+      <a routerLink="/admin/console">Admin Console</a>
+      <a routerLink="/admin/view-investment">View Investments</a>
+      <a routerLink="/admin/add/investment">Add Investment</a>
+      <a routerLink="/admin/view-inquiries">Inquiries</a>
+      <a routerLink="/admin/view/feedback">Feedback</a>
+    <button (click)="logout()">Logout</button>
+  </nav>
+  <div *ngIf="showLogoutPopup" class="popup">
+    <p>Are you sure you want to logout?</p>
+    <button (click)="Logout()">Yes, Logout</button>
+    <button (click)="cancelLogout()">Cancel</button>
+</div>
+  
+</div>

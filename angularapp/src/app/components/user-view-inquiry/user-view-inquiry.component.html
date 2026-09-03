@@ -1,0 +1,36 @@
+<app-usernav></app-usernav>
+<h1>Your Inquiries</h1>
+<table *ngIf="inquries.length!==0">
+    <thead>
+        <tr>
+            <th>Investment</th>
+            <th>Message</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Admin Response</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let inquiry of inquries | paginate: { itemsPerPage: 5, currentPage: page }; let i = index">
+            <td>{{inquiry.investment.name}}</td>
+            <td>{{inquiry.message}}</td>
+            <td>{{inquiry.priority}}</td>
+            <td>{{inquiry.status}}</td>
+            <td>{{inquiry.adminResponse}}</td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="inquries.length===0">
+    You have not submitted any inquiries yet.
+</p>
+<div *ngIf="inquries.length>0" style="margin-top: 20px; text-align: center;">
+    <pagination-controls
+      (pageChange)="page = $event"
+      previousLabel="« Prev"
+      nextLabel="Next »"
+      [maxSize]="5"
+      [directionLinks]="true"
+      [autoHide]="false">
+    </pagination-controls>
+  </div>
+  

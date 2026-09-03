@@ -1,0 +1,95 @@
+/* Navigation Bar */
+.user-nav {
+    background-color: #000;
+    color: #00ff00;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 255, 0, 0.2);
+  }
+  
+  .user-nav h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #00ff00;
+  }
+  
+  /* Role label */
+  .role-label {
+    margin: 0 20px;
+    font-size: 14px;
+    color: #00ff00;
+    background-color: #111;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid #00ff00;
+  }
+  
+  /* Navigation links */
+  .user-nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #00ff00;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .user-nav a:hover {
+    color: #fff;
+  }
+  
+  /* Logout button */
+  .user-nav button {
+    background-color: #111;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .user-nav button:hover {
+    background-color: #00ff00;
+    color: #000;
+  }
+  
+  /* Logout confirmation popup */
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+    width: 300px;
+  }
+  
+  .popup p {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  
+  .popup button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #111;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup button:hover {
+    background-color: #00ff00;
+    color: #000;
+  }
+  

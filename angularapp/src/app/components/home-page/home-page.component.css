@@ -1,0 +1,48 @@
+
+.home-container {
+  background-image: url('https://img.freepik.com/premium-vector/green-neon-style-stack-money-glowing-black-background_96318-202362.jpg'); 
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.content {
+  background-color: #1c1c1c;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+  text-align: center;
+}
+
+.content h1 {
+  color: #a4ff9b;
+  margin-bottom: 20px;
+}
+
+.content h2 {
+  color: #a4ff9b;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+}

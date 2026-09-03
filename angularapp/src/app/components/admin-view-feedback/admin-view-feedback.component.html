@@ -1,0 +1,73 @@
+ <app-adminnav></app-adminnav>
+ <h2>Feedback Received</h2>
+  
+ <table>
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Feedback ID</th>
+      <th>User</th>
+      <th>Investment</th>
+      <th>Category</th>
+      <th>Feedback Message</th>
+      <th>Posted Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="feedbacks.length === 0">
+      <td colspan="8" style="text-align: center;">No Feedback Found</td>
+    </tr>
+    <tr *ngFor="let feedback of feedbacks| paginate: { itemsPerPage: 5, currentPage: page }; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ feedback.feedbackId }}</td>
+      <td>{{ feedback.user?.username }}</td>
+      <td>{{ feedback.investment?.name }}</td>
+      <td>{{ feedback.category }}</td>
+      <td>{{ feedback.feedbackText }}</td>
+      <td>{{ feedback.date | date : 'mediumDate' }}</td>
+      <td>
+        <button (click)="showUserDetails(feedback.user)">Show Profile</button>
+        <button (click)="showInvestmentDetails(feedback.investment)">View Investment Info</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    <div class="modal" *ngIf="showUserModal">
+      <div class="modal-content">
+        <h3>User Details</h3>
+        <p>User ID: {{selectedUser.userId}}</p>
+        <p>Username: {{selectedUser.username}}</p>
+        <p>Email ID: {{selectedUser.email}}</p>
+        <p>Mobile Number: {{selectedUser.mobileNumber}}</p>
+        <button class="close-button"(click)="closeUserModal()">Close</button>
+      </div>
+    </div>
+  
+    <div class="modal" *ngIf="showInvestmentModal">
+      <div class="modal-content">
+        <h3>Investment Details</h3>
+        <p>Name: {{selectedInvestment.name}}</p>
+        <p>Type: {{selectedInvestment.type}}</p>
+        <p>Purchase Price: {{selectedInvestment.purchasePrice}}</p>
+        <p>Current Price: {{selectedInvestment.currentPrice}}</p>
+        <p>Quantity: {{selectedInvestment.quantity}}</p>
+        <p>Published Date: {{selectedInvestment.purchaseDate}}</p>
+        <p>Status: {{selectedInvestment.status}}</p>
+        <button class="close-button"(click)="closeInvestmentModal()">Close</button>
+      </div>
+    </div>
+
+    
+<div style="margin-top: 20px; text-align: center;">
+  <pagination-controls
+    (pageChange)="page = $event"
+    previousLabel="« Prev"
+    nextLabel="Next »"
+    [maxSize]="5"
+    [directionLinks]="true"
+    [autoHide]="false">
+  </pagination-controls>
+</div>
+
+  

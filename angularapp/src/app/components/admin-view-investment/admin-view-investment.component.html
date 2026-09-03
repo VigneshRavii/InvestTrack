@@ -1,0 +1,111 @@
+<app-adminnav></app-adminnav>
+<div class="styless" >
+<h2>Manage Investments</h2>
+
+<div class="filter-container">
+<div class="search-box">
+<label for="search">Search by Name:</label>
+<input type="text" placeholder="Investment Name..." [(ngModel)]="searchText">
+</div>
+
+<div class="filter-box">
+<label for="filter">Filter by Type:</label>
+<select name="filter" id="filter" [(ngModel)]="filterBy" >
+<option value="All Types">All Types</option>
+<option value="Mutual Funds">Mutual Funds</option>
+<option value="Stock">Stock</option>
+<option value="Crypto">Crypto</option>
+<option value="Real Estate">Real Estate</option>
+</select>
+</div>
+</div>
+
+<div *ngIf="investments.length==0" class="no-investments">
+    No investments available. Add some investments to view here.
+</div>
+
+<table *ngIf="investments.length>0">
+
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Purchase Price(USD)</th>
+            <th>Current Price(USD)</th>
+            <th>Quantity</th>
+            <th>Published Date</th>
+            <th>Status</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let investment of investments | search:searchText | filter:filterBy | paginate: { itemsPerPage: 5, currentPage: page } ; let i = index "  >
+            <td>
+                {{i+1}}
+            </td>
+            <td>
+                {{investment.investmentId}}
+            </td>
+            <td>
+                {{investment.name}}
+            </td>
+            <td>
+                {{investment.description}}
+            </td>
+            <td>
+                {{investment.type}}
+            </td>
+            <td>
+                {{investment.purchasePrice}}
+            </td>
+            <td>
+                {{investment.currentPrice}}
+            </td>
+            <td>
+                {{investment.quantity}}
+            </td>
+            <td>
+                {{investment.purchaseDate | date:'mediumDate'}}
+            </td>
+            <td>
+                {{investment.status}}
+            </td>
+            <td>
+                <button type="button" class="edit" (click)="openPopup('edit', investment.investmentId)">Edit</button>
+            </td>
+            <td>
+                <button type="button" class="delete" (click)="openPopup('delete', investment.investmentId)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+<div class="popup-overlay" *ngIf="showPopup">
+    <div class="popup-box">
+      <p>{{ popupMessage }}</p>
+      <button (click)="confirmAction()">Yes</button>
+      <button (click)="cancelAction()">No</button>
+    </div>
+  </div>
+
+</div>
+
+
+<div *ngIf="investments.length>0" style="margin-top: 20px; text-align: center;">
+    <pagination-controls
+      (pageChange)="page = $event"
+      previousLabel="« Prev"
+      nextLabel="Next »"
+      [maxSize]="5"
+      [directionLinks]="true"
+      [autoHide]="false">
+    </pagination-controls>
+  </div>
+  
+
+  

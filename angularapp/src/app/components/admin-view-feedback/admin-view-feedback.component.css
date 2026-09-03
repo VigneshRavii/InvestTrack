@@ -1,0 +1,138 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #FFFF; /* Full black background */
+  color:white;
+}
+
+h2 {
+    text-align: center;
+    color: #a4ff9b;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+  
+  table {
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: #1b1b1b;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  thead th {
+    background-color: #2d2d2d;
+    color: #a4ff9b;
+    padding: 10px;
+    border-bottom: 2px solid #444;
+  }
+  
+  tbody td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+  }
+  
+  tbody tr:hover {
+    background-color: #2c2c2c;
+  }
+  
+  button {
+    background-color: #29cc5f;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    margin: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background-color: #22a94a;
+  }
+  
+  p {
+    text-align: center;
+    font-style: italic;
+    color: #ccc;
+    font-size: 16px;
+  }
+  
+  /* Modal Styling */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    min-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  }
+  
+  .modal-content h3 {
+    color: #a4ff9b;
+    margin-bottom: 15px;
+  }
+  ::ng-deep .ngx-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  ::ng-deep .ngx-pagination a,
+  ::ng-deep .ngx-pagination span {
+    color: #00FF00 !important;
+    background-color: #111111 !important;
+    border: 1px solid #00FF00 !important;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-align: center;
+    min-width: 40px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  ::ng-deep .ngx-pagination a:hover {
+    background-color: #00FF00 !important;
+    color: #000000 !important;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+  }
+  
+  ::ng-deep .ngx-pagination .current {
+    background-color: #00FF00 !important;
+    color: #000000 !important;
+    font-weight: bold;
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.8);
+  }
+  button.close-button {
+    background-color: #ff4d4d; /* Red background */
+    color: white;
+  }
+  
+  button.close-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+  }
+  

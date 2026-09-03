@@ -1,0 +1,115 @@
+/* Admin Navigation Bar */
+.adminnav-container {
+  width: 100%;
+  background-color: #1e1e2f;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 255, 0, 0.1); /* Green shadow */
+}
+
+.admin-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #1e1e2f;
+  color: #00FF00; /* All text in green */
+}
+
+.admin-navbar h2 {
+  color: #00FF00;
+  font-size: 1.8rem;
+  margin-right: 2rem;
+}
+
+.role-label {
+  background-color: #00FF00;
+  color: black;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  margin-right: auto;
+  font-weight: bold;
+}
+
+.admin-navbar a {
+  color: #00FF00;
+  text-decoration: none;
+  margin: 0 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.admin-navbar a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #00FF00;
+  transition: width 0.3s ease;
+}
+
+.admin-navbar a:hover {
+  color: #00FF00;
+}
+
+.admin-navbar a:hover::after {
+  width: 100%;
+}
+
+.admin-navbar button {
+  background-color: #00FF00;
+  color: black;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-navbar button:hover {
+  background-color: #00cc00;
+}
+
+/* Logout Confirmation Popup */
+.popup {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background-color: #1e1e2f;
+  border: 2px solid #00FF00;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 255, 0, 0.2);
+  color: #00FF00;
+  text-align: center;
+  width: 350px;
+  z-index: 1000;
+}
+
+.popup h2 {
+  color: #00FF00;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.popup button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup button:first-child {
+  background-color: #00FF00;
+  color: black;
+}
+
+.popup button:last-child {
+  background-color: #f44336;
+  color: white;
+}

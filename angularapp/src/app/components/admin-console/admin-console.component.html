@@ -1,0 +1,21 @@
+<app-adminnav></app-adminnav>
+<div class="admin-console" >
+    <h1>Admin Console</h1>
+    <div class="card-row">
+      <div class="container">
+        <div routerLink="/admin/view/feedback" class="title-card">Total Feedbacks <div class="value-card">{{feedbacks.length}}</div></div>
+      </div>
+      <div class="container">
+        <div routerLink="/admin/view-inquiries" class="title-card">Total Inquiries <div class="value-card">{{inquiries.length}}</div></div>
+      </div>
+      <div class="container">
+        <div routerLink="/admin/view-investment" class="title-card">Total Investments <div class="value-card">{{investments.length}}</div></div>
+      </div>
+      <div class="container">
+        <div (click)="navigateWithStatusFilter()" (keypress)="handleKeyPress($event)" class="title-card">Unresolved Inquiries <div class="value-card">{{unresolvedInquiries.length}}</div></div>
+      </div>
+      <div class="container">
+        <div (click)="navigateWithPriorityFilter()" (keypress)="handleKeyPress($event)" class="title-card">High Priority Inquiries <div class="value-card">{{highPriorityInquiries.length}}</div></div>
+      </div>
+    </div>
+  </div>
