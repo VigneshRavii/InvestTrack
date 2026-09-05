@@ -8,7 +8,7 @@ RUN npm ci --legacy-peer-deps
 
 COPY . .
 
-RUN npm run build -- --configuration production
+RUN NODE_OPTIONS=--openssl-legacy-provider npm run build -- --configuration production
 
 FROM nginx:alpine
 
