@@ -44,7 +44,7 @@ public class SecurityConfig {
                         public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
 
                             CorsConfiguration cfg = new CorsConfiguration();
-                            cfg.setAllowedOriginPatterns(Collections.singletonList("investtrack.up.railway.app"));//"https://8081-aeecdbdbcbbfcaabecebeddbadd.premiumproject.examly.io")) 
+                            cfg.setAllowedOriginPatterns(Collections.singletonList("https://investtrack.up.railway.app/"));//"https://8081-aeecdbdbcbbfcaabecebeddbadd.premiumproject.examly.io")) 
                             cfg.setAllowedMethods(Collections.singletonList("*"));        
                             cfg.setAllowCredentials(true);
                             cfg.setAllowedHeaders(Collections.singletonList("*"));
